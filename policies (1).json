@@ -1,0 +1,460 @@
+[
+  {
+    "policy_id": "DATA-SHARING",
+    "version": "3.0",
+    "effective_date": "2024-01-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "External data sharing",
+    "content": "External sharing of customer data is prohibited."
+  },
+  {
+    "policy_id": "DATA-SHARING",
+    "version": "5.0",
+    "effective_date": "2026-04-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": "3.0",
+    "title": "External data sharing",
+    "content": "External sharing is permitted only with approved vendors."
+  },
+  {
+    "policy_id": "VENDOR-EXCEPTION",
+    "version": "1.0",
+    "effective_date": "2026-06-01",
+    "region": "GLOBAL",
+    "department": "Analytics",
+    "vendor": "Vendor-X",
+    "supersedes": null,
+    "title": "Vendor-X exception for Dataset Y",
+    "content": "Vendor-X is not approved for Dataset Y."
+  },
+  {
+    "policy_id": "RETENTION",
+    "version": "4.0",
+    "effective_date": "2026-01-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Customer record retention",
+    "content": "Customer support records may be retained for 5 years."
+  },
+  {
+    "policy_id": "EU-RETENTION",
+    "version": "2.0",
+    "effective_date": "2026-03-01",
+    "region": "EU",
+    "department": "Support",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Customer record retention in the EU",
+    "content": "Customer support records may be retained for 2 years."
+  },
+  {
+    "policy_id": "EU-DATA",
+    "version": "2.0",
+    "effective_date": "2026-05-01",
+    "region": "EU",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Additional EU dataset restrictions",
+    "content": "Additional restrictions apply to certain customer datasets."
+  },
+
+  {
+    "policy_id": "DEVICE-ACCESS",
+    "version": "1.0",
+    "effective_date": "2023-02-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Personal device access",
+    "content": "Company data may not be accessed from personal laptops or phones."
+  },
+  {
+    "policy_id": "DEVICE-ACCESS",
+    "version": "3.0",
+    "effective_date": "2026-02-15",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": "1.0",
+    "title": "Personal device access",
+    "content": "Company data may be accessed from a personal laptop only if it is enrolled in device management and disk encryption is on."
+  },
+  {
+    "policy_id": "IN-DEVICE",
+    "version": "1.0",
+    "effective_date": "2026-07-01",
+    "region": "IN",
+    "department": "Engineering",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Personal device access for Engineering in India",
+    "content": "Engineering staff in India must use a company-issued laptop for production systems. Personal devices are not permitted."
+  },
+  {
+    "policy_id": "REMOTE-WORK",
+    "version": "2.0",
+    "effective_date": "2026-01-10",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Working remotely",
+    "content": "Staff may work remotely up to three days a week with manager approval."
+  },
+  {
+    "policy_id": "REMOTE-WORK-EU",
+    "version": "1.0",
+    "effective_date": "2026-04-20",
+    "region": "EU",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Working remotely in the EU",
+    "content": "Staff in the EU may work fully remotely. Cross-border remote work beyond 30 days a year needs HR approval."
+  },
+  {
+    "policy_id": "PUBLIC-WIFI",
+    "version": "1.0",
+    "effective_date": "2025-06-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Public wifi use",
+    "content": "Company systems must not be accessed over public wifi without the corporate VPN."
+  },
+
+  {
+    "policy_id": "ENCRYPTION",
+    "version": "2.0",
+    "effective_date": "2025-09-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Encryption of customer data",
+    "content": "Customer data must be encrypted at rest and in transit."
+  },
+  {
+    "policy_id": "PII-HANDLING",
+    "version": "3.0",
+    "effective_date": "2026-03-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Handling personal information",
+    "content": "Personal information must be masked in logs, dashboards and support tickets."
+  },
+  {
+    "policy_id": "PII-EU",
+    "version": "1.0",
+    "effective_date": "2026-05-15",
+    "region": "EU",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Personal information in the EU",
+    "content": "Personal information belonging to EU residents may not leave the EU region without a transfer agreement."
+  },
+  {
+    "policy_id": "DATA-CLASS",
+    "version": "1.0",
+    "effective_date": "2025-01-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Data classification levels",
+    "content": "Data is classified Public, Internal, Confidential or Restricted. Restricted data requires named approval for every access."
+  },
+  {
+    "policy_id": "BACKUP",
+    "version": "2.0",
+    "effective_date": "2025-11-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Backups",
+    "content": "Production databases must be backed up daily and restores tested every quarter."
+  },
+  {
+    "policy_id": "LOG-RETENTION",
+    "version": "1.0",
+    "effective_date": "2025-08-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "System log retention",
+    "content": "Application and access logs are retained for 90 days."
+  },
+  {
+    "policy_id": "FIN-RETENTION",
+    "version": "2.0",
+    "effective_date": "2026-01-01",
+    "region": "GLOBAL",
+    "department": "Finance",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Financial record retention",
+    "content": "Invoices and financial records must be retained for 7 years."
+  },
+
+  {
+    "policy_id": "VENDOR-APPROVAL",
+    "version": "2.0",
+    "effective_date": "2026-02-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Getting a vendor approved",
+    "content": "A vendor must pass a security review before any data is shared. Approval lasts twelve months."
+  },
+  {
+    "policy_id": "VENDOR-EXCEPTION",
+    "version": "2.0",
+    "effective_date": "2026-06-10",
+    "region": "EU",
+    "department": "Support",
+    "vendor": "Vendor-Z",
+    "supersedes": null,
+    "title": "Vendor-Z exception for EU Support",
+    "content": "Vendor-Z is approved for EU Support ticket data only, and not for billing data."
+  },
+  {
+    "policy_id": "SUBPROCESSOR",
+    "version": "1.0",
+    "effective_date": "2026-03-20",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Vendor subprocessors",
+    "content": "An approved vendor may not pass company data to its own subcontractors without written consent."
+  },
+  {
+    "policy_id": "CONTRACT-SIGN",
+    "version": "1.0",
+    "effective_date": "2025-04-01",
+    "region": "GLOBAL",
+    "department": "Legal",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Who can sign a contract",
+    "content": "Only Legal may sign contracts on behalf of the company. Other teams must route agreements through Legal."
+  },
+
+  {
+    "policy_id": "ACCESS-CONTROL",
+    "version": "3.0",
+    "effective_date": "2026-01-05",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Access to production systems",
+    "content": "Production access is granted on request, expires after 30 days, and is reviewed quarterly."
+  },
+  {
+    "policy_id": "ADMIN-ACCESS",
+    "version": "1.0",
+    "effective_date": "2026-02-20",
+    "region": "GLOBAL",
+    "department": "Engineering",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Administrator access",
+    "content": "Administrator rights on production require two approvals and are granted for a maximum of 24 hours."
+  },
+  {
+    "policy_id": "MFA",
+    "version": "2.0",
+    "effective_date": "2025-07-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Multi-factor authentication",
+    "content": "Multi-factor authentication is mandatory for all company accounts."
+  },
+  {
+    "policy_id": "PASSWORD",
+    "version": "4.0",
+    "effective_date": "2026-01-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Passwords",
+    "content": "Passwords must be at least 14 characters. Routine expiry is no longer required."
+  },
+  {
+    "policy_id": "OFFBOARDING",
+    "version": "1.0",
+    "effective_date": "2025-10-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Leaver access removal",
+    "content": "All access must be revoked within 24 hours of a person leaving the company."
+  },
+
+  {
+    "policy_id": "INCIDENT",
+    "version": "2.0",
+    "effective_date": "2026-02-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Reporting a security incident",
+    "content": "A suspected security incident must be reported to the security team within one hour."
+  },
+  {
+    "policy_id": "BREACH-EU",
+    "version": "1.0",
+    "effective_date": "2026-05-01",
+    "region": "EU",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Breach notification in the EU",
+    "content": "A personal data breach affecting EU residents must be reported to the regulator within 72 hours."
+  },
+  {
+    "policy_id": "AI-TOOLS",
+    "version": "1.0",
+    "effective_date": "2026-06-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Using external AI tools",
+    "content": "Customer data and source code must not be pasted into external AI tools that are not on the approved list."
+  },
+  {
+    "policy_id": "OPEN-SOURCE",
+    "version": "2.0",
+    "effective_date": "2025-12-01",
+    "region": "GLOBAL",
+    "department": "Engineering",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Open source licences",
+    "content": "Copyleft licensed code may not be used in the product without Legal approval."
+  },
+
+  {
+    "policy_id": "TRAVEL",
+    "version": "3.0",
+    "effective_date": "2026-01-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Business travel",
+    "content": "Flights under six hours must be economy class. Travel needs manager approval in advance."
+  },
+  {
+    "policy_id": "EXPENSE",
+    "version": "5.0",
+    "effective_date": "2026-03-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Expense claims",
+    "content": "Expenses must be claimed within 60 days with a receipt. Claims over 500 need director approval."
+  },
+  {
+    "policy_id": "IN-EXPENSE",
+    "version": "1.0",
+    "effective_date": "2026-04-01",
+    "region": "IN",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Expense claims in India",
+    "content": "Claims in India must include a GST invoice where the vendor is GST registered."
+  },
+  {
+    "policy_id": "PROCUREMENT",
+    "version": "2.0",
+    "effective_date": "2025-09-15",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Buying software",
+    "content": "Any new software purchase over 1000 a year needs a security review and Finance sign-off."
+  },
+
+  {
+    "policy_id": "TRAINING",
+    "version": "2.0",
+    "effective_date": "2026-01-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Security training",
+    "content": "Every employee must complete security training once a year."
+  },
+  {
+    "policy_id": "AUDIT",
+    "version": "1.0",
+    "effective_date": "2025-05-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Audit trail",
+    "content": "Access to Restricted data is logged and the log is kept for two years."
+  },
+  {
+    "policy_id": "RECORDING",
+    "version": "1.0",
+    "effective_date": "2026-02-10",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Recording meetings",
+    "content": "Meetings may be recorded only if every participant is told at the start."
+  },
+  {
+    "policy_id": "RECORDING-EU",
+    "version": "1.0",
+    "effective_date": "2026-05-20",
+    "region": "EU",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Recording meetings in the EU",
+    "content": "In the EU, every participant must give explicit consent before a meeting is recorded."
+  },
+  {
+    "policy_id": "SOCIAL-MEDIA",
+    "version": "1.0",
+    "effective_date": "2025-03-01",
+    "region": "GLOBAL",
+    "department": "ALL",
+    "vendor": "ALL",
+    "supersedes": null,
+    "title": "Speaking publicly about the company",
+    "content": "Unreleased product details must not be posted publicly. Press questions go to Communications."
+  }
+]

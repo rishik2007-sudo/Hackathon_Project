@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PolicyLens</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    max-width: 860px; margin: 0 auto;
+    padding: 40px 48px 64px;
+    font: 15px/1.6 Georgia, "Times New Roman", serif;
+    color: #1a1a1a; background: #fff;
+  }
+
+  header { border-bottom: 2px solid #1a1a1a; padding-bottom: 14px; }
+  h1 { font-size: 26px; font-weight: normal; letter-spacing: -.2px; }
+  h1 em { font-style: italic; }
+  header p { color: #666; font-size: 14px; margin-top: 4px; }
+
+  .ask { display: flex; gap: 10px; margin: 24px 0 12px; }
+  input {
+    flex: 1; padding: 11px 14px; font: inherit;
+    border: 1px solid #bbb; border-radius: 3px; background: #fff;
+  }
+  input:focus { outline: none; border-color: #1a1a1a; }
+  button {
+    padding: 11px 26px; font: inherit; cursor: pointer;
+    border: 1px solid #1a1a1a; border-radius: 3px;
+    background: #1a1a1a; color: #fff;
+  }
+  button:hover { background: #333; }
+
+  .samples { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 26px; }
+  .samples a {
+    font-size: 13px; color: #555; cursor: pointer;
+    border-bottom: 1px dotted #999;
+  }
+  .samples a:hover { color: #1a1a1a; border-bottom-style: solid; }
+
+  .out { display: flex; flex-direction: column; gap: 24px; }
+
+  .label {
+    font-family: system-ui, sans-serif; font-size: 11px;
+    letter-spacing: .1em; text-transform: uppercase; color: #888;
+    padding-bottom: 6px; border-bottom: 1px solid #e2e2e2; margin-bottom: 10px;
+  }
+
+  #verdict { font-size: 30px; line-height: 1.2; }
+  .no  { color: #a31515; }
+  .ask-more { color: #8a6d00; }
+  #reason { color: #444; margin-top: 6px; }
+
+  .item {
+    display: inline-block; margin: 0 20px 6px 0;
+    font-family: ui-monospace, "Courier New", monospace; font-size: 13px;
+  }
+  .gone { color: #999; text-decoration: line-through; }
+  .gone small { font-family: Georgia, serif; font-style: italic; text-decoration: none; }
+  .item small { color: #aaa; }
+  #stats { font-weight: normal; letter-spacing: 0; text-transform: none; }
+
+  /* frequently asked */
+  .faq details { border-bottom: 1px solid #eee; }
+  .faq summary {
+    list-style: none; cursor: pointer; padding: 9px 0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "\25BE"; color: #aaa; font-size: 12px;
+    transition: transform .15s;
+  }
+  .faq details[open] summary::after { transform: rotate(180deg); }
+  .faq summary:hover { color: #000; }
+  .faq p { color: #555; font-size: 14px; padding: 0 0 12px; max-width: 70ch; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Policy<em>Lens</em></h1>
+  <p>Finds the rule that is actually in force today &mdash; and shows you what it discarded.</p>
+</header>
+
+<div class="ask">
+  <input id="q" placeholder="Ask a policy question&hellip;" autofocus>
+  <button onclick="ask()">Ask</button>
+</div>
+
+<div class="samples">
+  <a onclick="fill(this)">Can the Analytics team share Dataset Y with Vendor X in India today?</a>
+  <a onclick="fill(this)">How long can customer data be retained for the EU Support team?</a>
+  <a onclick="fill(this)">Can I share this customer dataset with an external vendor?</a>
+</div>
+
+<div class="out">
+  <div>
+    <div class="label">Verdict</div>
+    <div id="verdict">&mdash;</div>
+    <div id="reason">Pick a question above, or type your own.</div>
+  </div>
+  <div>
+    <div class="label">Retrieved <span id="stats"></span></div>
+    <div id="sources"></div>
+  </div>
+  <div>
+    <div class="label">Discarded before the model saw them</div>
+    <div id="dropped"></div>
+  </div>
+
+  <div class="faq">
+    <div class="label">Frequently asked</div>
+
+    <details>
+      <summary>Why not just search the policy documents?</summary>
+      <p>Search returns the document that <em>looks</em> most like your question. It has no idea
+         that one of them was replaced in 2026 and is now wrong.</p>
+    </details>
+
+    <details>
+      <summary>How does it know which rule wins?</summary>
+      <p>The more specific rule wins. A policy naming your exact region and team beats one that
+         says GLOBAL and ALL. A named-vendor exception beats everything.</p>
+    </details>
+
+    <details>
+      <summary>What happens to old policy versions?</summary>
+      <p>Plain Python removes them before the model runs, using the effective date and the
+         supersedes field. The model can never quote a dead policy, because it never sees one.</p>
+    </details>
+
+    <details>
+      <summary>What if the question is missing information?</summary>
+      <p>It asks. If the answer changes by region and you never said your region, it asks for
+         the region instead of guessing.</p>
+    </details>
+
+    <details>
+      <summary>What does the AI actually decide?</summary>
+      <p>Only the judgement call &mdash; which surviving rule governs, and how to say it. Dates
+         and versions are maths, so Python handles those and is right every time.</p>
+    </details>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const fill = el => { $('q').value = el.textContent; ask(); };
+$('q').addEventListener('keydown', e => { if (e.key === 'Enter') ask(); });
+
+async function ask() {
+  const q = $('q').value.trim();
+  if (!q) return;
+  $('verdict').textContent = '…';
+  $('reason').textContent = '';
+
+  const r = await fetch('/ask', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ question: q })
+  }).then(r => r.json());
+
+  $('verdict').textContent = r.verdict;
+  $('verdict').className = r.verdict === 'No' ? 'no'
+    : /^(Need|Cannot)/.test(r.verdict) ? 'ask-more' : '';
+  $('reason').textContent = r.reason;
+
+  $('stats').textContent =
+    `— searched ${r.searched}, ${r.out_of_scope} out of scope, ${r.sources.length} kept`;
+
+  $('sources').innerHTML = r.sources.map(s =>
+      `<span class="item">${s} <small>${(r.scores[s] ?? 0).toFixed(2)}</small></span>`
+    ).join('') || '<span class="item">none</span>';
+
+  $('dropped').innerHTML = r.dropped.map(s => {
+    const [id, why] = s.split(' - ');
+    return `<span class="item gone">${id} <small>&mdash; ${why}</small></span>`;
+  }).join('') || '<span class="item">none</span>';
+}
+</script>
+</body>
+</html>
